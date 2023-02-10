@@ -1,3 +1,8 @@
+### Oque você verá nesse repositório?
+
+Criei e separei alguns exemplos básicos e iniciais de testes de API para você exercitar em casa.
+Caso não tenha conhecimento de testes API essa é uma boa ideia para questionar oque cada script faz.
+
 ### Importância dos Testes de API
 
 Testar APIs é uma parte fundamental do desenvolvimento de software, garantindo que a funcionalidade esteja correta e fornecendo confiança aos desenvolvedores e aos usuários finais. Além disso, testes bem escritos ajudam a identificar problemas rapidamente, economizando tempo e recursos na correção de erros.
