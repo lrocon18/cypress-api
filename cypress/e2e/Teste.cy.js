@@ -5,7 +5,7 @@ describe('Testes', () => {
 
   afterEach(() => {
     count++;
-    Helper.capturaTela(`cenario ${count}`);
+    Helper.capturaTela(`cenario${count}`);
   });
   
 it('Deve retornar um endereço de email válido', () => {
