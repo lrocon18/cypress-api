@@ -26,9 +26,6 @@ jobs:
           rm -rf reports/ || true
           rm -rf results/ || true
 
-      - name: Verifica o Cypress
-        run: npm run cypress:verify
-
       - name: Executa os testes
         run: npm run test
         continue-on-error: true
