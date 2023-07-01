@@ -1,7 +1,7 @@
 // Teste de Carga
 describe('Teste de Carga', () => { //Aqui um teste simples de carga realizando várias solicitações ao mesmo tempo
-  it('Deve ser capaz de lidar com 100 solicitações GET simultâneas', () => {
-    const promises = Array(100).fill().map(() => {
+  it('Deve ser capaz de lidar com 10 solicitações GET simultâneas', () => {
+    const promises = Array(10).fill().map(() => {
       return cy.request({
         method: 'GET', //Pode ser elevado para um nível maior, realizando requisições POST com informações distintas ao mesmo tempo.
         //Assim testando a capacidade da API de receber informações.

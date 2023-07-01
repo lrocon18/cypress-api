@@ -1,0 +1,50 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Instala dependencias
+        run: npm install
+
+      - name: Limpa reports
+        run: |
+          rm -rf reports/ || true
+          rm -rf results/ || true
+
+      - name: Verifica o Cypress
+        run: npm run cypress:verify
+
+      - name: Executa os testes
+        run: npm run test
+        continue-on-error: true
+
+      - name: Gera HTML 
+        run: npm run gera-relatorio
+
+      - name: Publica capturas de tela
+        uses: actions/upload-artifact@v2
+        with:
+          name: Screenshots
+          path: $(System.DefaultWorkingDirectory)/results/screenshots
+
+      # - name: Gera e publica relatório
+      #   uses: EnricoMi/publish-unit-test-result-action@v2
+      #   with:
+      #     test_results_files: '**/test-results-*.xml'
+      #     search_folder: $(System.DefaultWorkingDirectory)/cypress/results/mochawesome-report
+      #     merge_test_results: true

@@ -1,4 +1,9 @@
 describe('Teste de Validação de Endereço de Email', () => {
+
+afterEach(() => {
+  cy.capturaTela();
+})
+
     // Realizar uma solicitação POST a uma API para validar um endereço de email
     it('Deve retornar um endereço de email válido', () => {
       cy.request('POST', 'https://api.mailboxvalidator.com/v1/validation/single', {
