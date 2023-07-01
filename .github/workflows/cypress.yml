@@ -36,8 +36,8 @@ jobs:
       - name: Publica Relatório HTML
         uses: actions/upload-artifact@v2
         with:
-          name: mochawesome-reporter
-          path: /home/runner/work/cypress-api/cypress-api/results/screenshots
+          name: Relatório
+          path: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/
 
       # - name: Publica Relatório
       #   uses: lrocon18/actions-gh-pages@v3
