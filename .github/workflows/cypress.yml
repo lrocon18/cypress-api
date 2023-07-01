@@ -30,18 +30,17 @@ jobs:
         run: npm run test
         continue-on-error: true
 
-      - name: Gera HTML 
+      - name: Gera Relatorio 
         run: npm run gera-relatorio
 
-      - name: Publica capturas de tela
+      - name: Publica Relatório HTML
         uses: actions/upload-artifact@v2
         with:
-          name: Screenshots
-          path: $(System.DefaultWorkingDirectory)/results/screenshots
+          name: mochawesome-reporter
+          path: $(System.DefaultWorkingDirectory)/results/mochawesome-report
 
-      # - name: Gera e publica relatório
-      #   uses: EnricoMi/publish-unit-test-result-action@v2
+      # - name: Publica Relatório
+      #   uses: lrocon18/actions-gh-pages@v3
       #   with:
-      #     test_results_files: '**/test-results-*.xml'
-      #     search_folder: $(System.DefaultWorkingDirectory)/cypress/results/mochawesome-report
-      #     merge_test_results: true
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: results/mochawesome-report
