@@ -36,5 +36,5 @@ jobs:
       - name: Publish HTML Report
         uses: lrocon18/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TESTE_AUTOMATIZADO }}
           publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/index.html
