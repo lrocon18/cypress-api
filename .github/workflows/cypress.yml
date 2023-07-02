@@ -1,4 +1,4 @@
-          name: Cypress Tests
+name: Cypress Tests
 
 on:
   push:
@@ -18,24 +18,23 @@ jobs:
         with:
           node-version: 14
 
-      - name: Instala dependencias
+      - name: Install Dependencies
         run: npm install
 
-      - name: Limpa reports
+      - name: Clean Reports
         run: |
           rm -rf reports/ || true
           rm -rf results/ || true
 
-      - name: Executa os testes
+      - name: Run Tests
         run: npm run test
         continue-on-error: true
 
-      - name: Gera Relatorio 
+      - name: Generate Report
         run: npm run gera-relatorio
 
-      - name: Publica Relatório HTML
+      - name: Publish HTML Report
         uses: actions/upload-artifact@v2
         with:
-          name: Relatório
+          name: Report
           path: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/
-
