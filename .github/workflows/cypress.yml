@@ -34,7 +34,7 @@ jobs:
         run: npm run gera-relatorio
 
       - name: Publicar relatório HTML
-        uses: lrocon18/actions-gh-pages@v3.11.0
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TESTE_AUTOMATIZADO }}
           publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/index.html
