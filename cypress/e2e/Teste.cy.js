@@ -1,11 +1,7 @@
-import Helper from '../../helper/pageObjects/capturaTela';
-let count = 0;
-
 describe('Testes', () => {
 
   afterEach(() => {
-    count++;
-    Helper.capturaTela(`cenario${count}`);
+    cy.geraScreenshot();
   });
   
 it('Deve retornar um endereço de email válido', () => {

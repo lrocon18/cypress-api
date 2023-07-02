@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "scripts": {
-        "test:chrome": "cypress run --browser chrome --reporter mochawesome",
-        "combine:report": "mochawesome-merge ./mochawesome-report/*.json -o index.json",
-        "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
-    },
+  "scripts": {
+    "test:chrome": "cypress run --browser chrome --reporter mochawesome",
+    "combine:report": "mochawesome-merge cypress/mochawesome-report/*.json -o index.json",
+    "generate:report": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

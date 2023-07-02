@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+const addContext = require('mochawesome/addContext');
 
 let prevNome = [];
 class Helper {
@@ -12,8 +13,8 @@ class Helper {
                         test
                     },
                     {
-                        title: 'Captura de tela ',
-                        value: `$(System.DefaultWorkingDirectory)/cypress/screenshots/${Cypress.spec.name}/${nome}.png`
+                        title: 'Captura de Tela ',
+                        value: `./screenshots/${Cypress.spec.name}/${nome}.png`
                     });
                     prevNome.push(nome);
                 }
