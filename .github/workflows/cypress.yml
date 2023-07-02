@@ -1,36 +1,46 @@
-name: Generate Cypress Report
+          name: Cypress Tests
+
 on:
   push:
     branches:
-      - 'master'
+      - master
 
 jobs:
-  cypress-test:
-    name: Run on Chrome 83
-    runs-on: ubuntu-18.04
-    container: cypress/browsers:node12.18.0-chrome83-ff77
+  cypress:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Install cypress and verify
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Instala dependencias
+        run: npm install
+
+      - name: Limpa reports
         run: |
-          npm ci
-          $(npm bin)/cypress verify
+          rm -rf reports/ || true
+          rm -rf results/ || true
 
-      - name: Run Cypress tests
-        run: npm run test:chrome
+      - name: Executa os testes
+        run: npm run test
         continue-on-error: true
 
-      - name: Copy test execution videos and screenshots
-        run: |
-          mkdir public
-          cp -r cypress/screenshots public/screenshots
-
-      - name: Merge test reports
+      - name: Gera Relatorio 
         run: npm run gera-relatorio
-      
-      - name: Deploy report page to GitHub Page
+
+      # - name: Publica Relatório HTML
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Relatório
+      #     path: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/
+
+      - name: Publica Relatório
         uses: lrocon18/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          github_token: ${{ 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 }}
+          publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report
