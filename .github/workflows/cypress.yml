@@ -18,29 +18,23 @@ jobs:
         with:
           node-version: 14
 
-      - name: Instala dependencias
+      - name: Install Dependencies
         run: npm install
 
-      - name: Limpa reports
+      - name: Clean Reports
         run: |
           rm -rf reports/ || true
           rm -rf results/ || true
 
-      - name: Executa os testes
+      - name: Run Tests
         run: npm run test
         continue-on-error: true
 
-      - name: Gera Relatorio 
+      - name: Generate Report
         run: npm run gera-relatorio
 
-      - name: Publica Relatório HTML
-        uses: actions/upload-artifact@v2
+      - name: Publish HTML Report
+        uses: lrocon18/actions-gh-pages@v3
         with:
-          name: relatorio
-          path: /cypress-api/cypress-api/results/mochawesome-report/index.html
-
-      # - name: Publica Relatório
-      #   uses: lrocon18/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: results/mochawesome-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/index.html
