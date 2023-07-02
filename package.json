@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run --reporter mochawesome",
-    "gera-relatorio": "marge results/mochawesome.json -f report -o results/mochawesome-report"
+    "gera-relatorio": "marge results/mochawesome.json -f index -o results/mochawesome-report"
   },
   "keywords": [],
   "author": "",
