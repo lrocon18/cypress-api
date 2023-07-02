@@ -11,8 +11,6 @@ module.exports = defineConfig({
     "video": false,
     "reporter": "mochawesome",
     "reporterOptions": {
-      "charts": true,
-      "reportDir": "results/",
       "overwrite": false,
       "html": false,
       "json": true
