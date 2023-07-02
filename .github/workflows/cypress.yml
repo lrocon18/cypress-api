@@ -33,8 +33,14 @@ jobs:
       - name: Gera Relatorio 
         run: npm run gera-relatorio
 
-      - name: Publica Relatório
-        uses: lrocon18/actions-gh-pages@v3
+      - name: Publica Relatório HTML
+        uses: actions/upload-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report
+          name: relatorio
+          path: /cypress-api/cypress-api/results/mochawesome-report/index.html
+
+      # - name: Publica Relatório
+      #   uses: lrocon18/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: results/mochawesome-report
