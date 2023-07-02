@@ -5,10 +5,13 @@ on:
       - 'master'
 
 jobs:
+
   cypress-test:
     name: Run on Chrome 83
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.0-chrome83-ff77
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
