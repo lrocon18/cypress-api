@@ -7,7 +7,7 @@ module.exports = defineConfig({
     "watchForFileChanges": false,
     "viewportHeight": 720,
     "viewportWidth": 1280,
-    "screenshotsFolder": "screenshots",
+    "screenshotsFolder": "cypress/screenshots",
     "video": false,
     "reporter": "mochawesome",
     "reporterOptions": {
