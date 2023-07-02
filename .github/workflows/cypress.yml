@@ -1,4 +1,4 @@
-name: Generate Cypress Report
+name: Executa testes e Gera Relatório
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
 jobs:
 
   cypress-test:
-    name: Run on Chrome 83
+    name: Testes de Regressão Automatizados
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.0-chrome83-ff77
     permissions:
@@ -15,26 +15,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install cypress and verify
+      - name: Instala o Cypress
         run: |
           npm i
  
-      - name: Run Cypress tests
+      - name: Executa os testes
         run: npm run test:chrome
         continue-on-error: true
 
-      - name: Copy test execution videos and screenshots
+      - name: Copia as evidências e teste e transfere para uma pasta pública
         run: |
           mkdir public
           cp -r cypress/screenshots public/screenshots
 
-      - name: Merge test reports
+      - name: Mergea os relatórios
         run: npm run combine:report
 
-      - name: Generate HTML report
+      - name: Gera o relatório HTML
         run: npm run generate:report
 
-      - name: Deploy report page to GitHub Page
+      - name: Realiza o Deploy do relatório HTML
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
