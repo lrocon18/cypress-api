@@ -13,13 +13,13 @@ class Helper {
                     },
                     {
                         title: 'Captura de tela ',
-                        value: `$(System.DefaultWorkingDirectory)/results/screenshots/${Cypress.spec.name}/${nome}.png`
+                        value: `$(System.DefaultWorkingDirectory)/cypress/screenshots/${Cypress.spec.name}/${nome}.png`
                     });
                     prevNome.push(nome);
                 }
             });
         });
     }
-}
+} 
 
 export default new Helper();
