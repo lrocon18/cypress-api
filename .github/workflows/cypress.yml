@@ -39,8 +39,8 @@ jobs:
           name: Relatório
           path: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/
 
-      - name: Publica Relatório
-        uses: lrocon18/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.automation }}
-          publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report
+      # - name: Publica Relatório
+      #   uses: lrocon18/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.automation }}
+      #     publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report
