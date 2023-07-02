@@ -13,7 +13,7 @@ class Helper {
                     },
                     {
                         title: 'Captura de tela ',
-                        value: `./screenshots/${Cypress.spec.name}/${nome}.png`
+                        value: `cypress-api/screenshots/${Cypress.spec.name}/${nome}.png`
                     });
                     prevNome.push(nome);
                 }
