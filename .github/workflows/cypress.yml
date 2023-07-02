@@ -10,31 +10,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout do repositório
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Configurar o Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
-      - name: Install Dependencies
+      - name: Instalar dependências
         run: npm install
 
-      - name: Clean Reports
+      - name: Limpar relatórios
         run: |
           rm -rf reports/ || true
           rm -rf results/ || true
 
-      - name: Run Tests
+      - name: Executar testes
         run: npm run test
         continue-on-error: true
 
-      - name: Generate Report
+      - name: Gerar relatório
         run: npm run gera-relatorio
-  
-      - name: Publish HTML Report
-        uses: lrocon18/actions-gh-pages@v3
+
+      - name: Publicar relatório HTML
+        uses: github-pages-deploy-action
         with:
           github_token: ${{ secrets.TESTE_AUTOMATIZADO }}
           publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report/index.html
