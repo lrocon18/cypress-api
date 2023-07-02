@@ -42,5 +42,5 @@ jobs:
       - name: Publica Relatório
         uses: lrocon18/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.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 }}
+          github_token: ${{ secrets.automation }}
           publish_dir: /home/runner/work/cypress-api/cypress-api/results/mochawesome-report
